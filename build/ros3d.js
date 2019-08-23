@@ -59250,9 +59250,11 @@ class Viewer {
     this.cameraControls.userZoomSpeed = cameraZoomSpeed;
 
     // lights
-    this.scene.add(new THREE$2.AmbientLight(0x555555));
-    this.directionalLight = new THREE$2.DirectionalLight(0xffffff, intensity);
+    /* [Stealth] Disable lightning
+    this.scene.add(new THREE.AmbientLight(0x555555));
+    this.directionalLight = new THREE.DirectionalLight(0xffffff, intensity);
     this.scene.add(this.directionalLight);
+    */
 
     // propagates mouse events to three.js objects
     this.selectableObjects = new THREE$2.Object3D();
@@ -59303,7 +59305,10 @@ class Viewer {
     // BUG: position is a read-only property of DirectionalLight,
     // attempting to assign to it either does nothing or throws an error.
     //this.directionalLight.position = this.camera.localToWorld(new THREE.Vector3(-1, 1, 0));
+
+    /* [Stealth] Disable lighting
     this.directionalLight.position.normalize();
+    */
 
     // set the scene
     this.renderer.clear(true, true, true);
