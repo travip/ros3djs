@@ -59267,9 +59267,11 @@ class Viewer {
     });
 
     // highlights the receiver of mouse events
+    /* [Stealth] Highlighter is megabroken.
     this.highlighter = new Highlighter({
       mouseHandler : mouseHandler
     });
+     */
 
     this.stopped = true;
     this.animationRequestId = undefined;
@@ -59313,7 +59315,9 @@ class Viewer {
     // set the scene
     this.renderer.clear(true, true, true);
     this.renderer.render(this.scene, this.camera);
+    /* [Stealth] This calls all kinds of issues.
     this.highlighter.renderHighlights(this.scene, this.renderer, this.camera);
+     */
 
     // draw the frame
     this.animationRequestId = requestAnimationFrame(this.draw.bind(this));
